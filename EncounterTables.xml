@@ -1,0 +1,84 @@
+<encountertables>
+  <encountertable Name="Ammo 4" Load="Merge">
+    <objects>
+      <object Chance="5" Number="3d2" Blueprint="HW_SmallIncendiaryRocket"></object>
+      <object Chance="5" Number="1d2" Blueprint="HW_IncendiaryRocket"></object>
+      <object Chance="5" Number="1d2" Blueprint="HW_ThermobaricRocket"></object>
+      <object Chance="5" Number="1d3" Blueprint="HW_ArtShell"></object>           
+    </objects>
+  </encountertable>
+  
+  <encountertable Name="Ammo 5" Load="Merge">
+    <objects>
+      <object Chance="10" Number="4d2" Blueprint="HW_SmallIncendiaryRocket"></object>
+      <object Chance="5" Number="1d3" Blueprint="HW_IncendiaryRocket"></object>
+      <object Chance="5" Number="1d3" Blueprint="HW_ThermobaricRocket"></object>
+      <object Chance="5" Number="1d4" Blueprint="HW_ArtShell"></object>       
+    </objects>
+  </encountertable>
+  
+  <encountertable Name="Ammo 6" Load="Merge">
+    <objects>
+      <object Chance="10" Number="4d2" Blueprint="HW_SmallIncendiaryRocket"></object>
+      <object Chance="10" Number="1d3" Blueprint="HW_IncendiaryRocket"></object>
+      <object Chance="10" Number="1d3" Blueprint="HW_ThermobaricRocket"></object>
+      <object Chance="5" Number="1d4" Blueprint="HW_ArtShell"></object>    
+    </objects>
+  </encountertable>
+  
+  <encountertable Name="Ammo 7" Load="Merge">
+    <objects>
+      <object Chance="15" Number="4d2" Blueprint="HW_SmallIncendiaryRocket"></object>
+      <object Chance="15" Number="2d2" Blueprint="HW_IncendiaryRocket"></object>
+      <object Chance="15" Number="1d3" Blueprint="HW_ThermobaricRocket"></object>
+      <object Chance="10" Number="1d4" Blueprint="HW_ArtShell"></object>     
+    </objects>
+  </encountertable>
+  
+  <encountertable Name="Ammo 8" Load="Merge">
+    <objects>
+      <object Chance="15" Number="4d2" Blueprint="HW_SmallIncendiaryRocket"></object>
+      <object Chance="15" Number="2d2" Blueprint="HW_IncendiaryRocket"></object>
+      <object Chance="15" Number="1d3" Blueprint="HW_ThermobaricRocket"></object>
+      <object Chance="10" Number="1d4" Blueprint="HW_ArtShell"></object> 
+    </objects>
+  </encountertable>
+    
+  <encountertable Name="Missile Weapon 4" Load="Merge">
+    <objects>
+      <object Chance="10" Number="1d1" Blueprint="HW_FlameWeapon"></object>    
+      <object Chance="5" Number="1d1" Blueprint="HW_DoubleBarrelRL"></object>  
+    </objects>
+  </encountertable>
+  
+  <encountertable Name="Missile Weapon 5" Load="Merge">
+    <objects>
+      <object Chance="5" Number="1d1" Blueprint="HW_FlameWeapon"></object>    
+      <object Chance="5" Number="1d1" Blueprint="HW_DoubleBarrelRL"></object>
+      <object Chance="5" Number="1d1" Blueprint="HW_Minigun"></object>    
+      <object Chance="5" Number="1d1" Blueprint="HW_Howitzer"></object>    
+    </objects>
+  </encountertable>
+  
+  <encountertable Name="Missile Weapon 6" Load="Merge">
+    <objects>
+      <object Chance="5" Number="1d1" Blueprint="HW_DoubleBarrelRL"></object>
+      <object Chance="5" Number="1d1" Blueprint="HW_Minigun"></object>    
+      <object Chance="5" Number="1d1" Blueprint="HW_Howitzer"></object>    
+    </objects>
+  </encountertable>
+  
+  <encountertable Name="Missile Weapon 7" Load="Merge">
+    <objects>
+      <object Chance="5" Number="1d1" Blueprint="HW_Minigun"></object>    
+      <object Chance="5" Number="1d1" Blueprint="HW_Howitzer"></object>   
+    </objects>
+  </encountertable>
+  
+  <encountertable Name="Missile Weapon 8" Load="Merge">
+    <objects>
+      <object Chance="5" Number="1d1" Blueprint="HW_Minigun"></object>    
+      <object Chance="5" Number="1d1" Blueprint="HW_Howitzer"></object> 
+    </objects>
+  </encountertable>
+</encountertables>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<populations>  
+  <population Name="Explosives 2">
+    <group Name="Items" Style="pickeach">
+      <object Blueprint="HW_SmallIncendiaryRocket" Number="0-9" Weight="50"></object>
+    </group>
+  </population>
+  
+  <population Name="Explosives 3">
+    <group Name="Items" Style="pickeach">
+      <object Blueprint="HW_SmallIncendiaryRocket" Number="1-6" Weight="50"></object>
+      <object Blueprint="HW_IncendiaryRocket" Number="1-3" Weight="50"></object>
+      <object Blueprint="HW_ThermobaricRocket" Number="1-3" Weight="50"></object>
+      <object Blueprint="HW_PhosphorousRocket" Number="1-3" Weight="50"></object>
+      <object Blueprint="HW_ArtShell" Number="1-3" Weight="30"></object>
+    </group>
+  </population>
+    
+  <population Name="Guns 4">
+    <group Name="Items" Style="pickone">
+      <object Blueprint="HW_FlameWeapon" Weight="30"></object>
+    </group>
+  </population>
+  
+  <population Name="Guns 5">
+    <group Name="Items" Style="pickone">
+      <object Blueprint="HW_FlameWeapon" Weight="50"></object>
+      <object Blueprint="HW_DoubleBarrelRL" Weight="50"></object>
+    </group>
+  </population>
+  
+  <population Name="Guns 6">
+    <group Name="Items" Style="pickone">
+      <object Blueprint="HW_FlameWeapon" Weight="40"></object>
+      <object Blueprint="HW_DoubleBarrelRL" Weight="40"></object>
+      <object Blueprint="HW_Minigun" Weight="30"></object>
+      <object Blueprint="HW_Howitzer" Weight="40"></object>
+    </group>
+  </population>
+</populations>
