@@ -9,18 +9,16 @@ namespace XRL.World.Parts
     [Serializable]
     public class HW_Artillery : IPart
     {
+        private const int GROUND_LEVEL = 10;
+		
         public Guid FireHowitzerActivatedAbilityID = Guid.Empty;
         public ActivatedAbilityEntry FireHowitzerActivatedAbility;
         public bool CanFireAtUnexplored;
         public int SpreadRadius;
-        int groundLevel = 10;
 
         public HW_Artillery() { }
 
-        public override bool SameAs(IPart p)
-        {
-            return true;
-        }
+        public override bool SameAs(IPart p) => base.SameAs(p);        
 
         public override void Register(GameObject Object)
         {
@@ -47,7 +45,7 @@ namespace XRL.World.Parts
                     return true;
                 }
 
-                if (currentCell.ParentZone.Z != groundLevel)
+                if (currentCell.ParentZone.Z != GROUND_LEVEL)
                 {
                     if (owner.IsPlayer())
                         Popup.Show("You can only use this ability at ground level.", true);
@@ -92,7 +90,7 @@ namespace XRL.World.Parts
                         randomCell.AddObject(GO);
                         GasGrenade gr = GO.GetPart("GasGrenade") as GasGrenade;
                         GO.pPhysics.PlayWorldSound(ParentObject.GetTag("DetonatedSound", (string)null), 0.5f, 0.0f, true, (Cell)null);
-                        gr.Detonate(owner);
+                        gr.Detonate(randomCell, owner);
                     }
                     if (GOexample.HasPart("ExplodeOnHit"))
                     {
@@ -165,3 +163,8 @@ namespace XRL.World.Parts
         }
     }
 }
+/*=== Heavy Weapons Errors ===
+\HW_AddPopulationsFromXML.cs(59,83): error CS0266: Cannot implicitly convert type 'int' to 'uint'. An explicit conversion exists (are you missing a cast?)
+\HW_Artillery.cs(93,37): error CS1503: Argument 1: cannot convert from 'XRL.World.GameObject' to 'XRL.World.Cell'
+== Warnings ==
+None*/
