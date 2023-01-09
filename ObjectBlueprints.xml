@@ -3,15 +3,14 @@
 <!--Minigun-->
   <object Name="HW_Minigun" Inherits="BaseHeavyWeapon">
     <part Name="Render" DisplayName="minigun" RenderString=")" DetailColor="W" Tile="items/hw_Minigun.png"></part>
-    <part Name="Physics" bUsesTwoSlots="true"></part>
+    <part Name="Physics" UsesTwoSlots="true" Weight="50"></part>
     <part Name="Commerce" Value="900"></part>
-    <part Name="MissileWeapon" Skill="HeavyWeapons" NoAmmoProjectile="HW_ProjectileAntiTankShell" ShotsPerAction="20" AmmoPerAction="20" ShotsPerAnimation="5" WeaponAccuracy="16"></part>
+    <part Name="MissileWeapon" Skill="HeavyWeapons" ShotsPerAction="20" AmmoPerAction="20" ShotsPerAnimation="5" WeaponAccuracy="16"></part>
     <part Name="MagazineAmmoLoader" ProjectileObject="HW_ProjectileMinigunSlug" AmmoPart="AmmoSlug" MaxAmmo="200"></part>
     <part Name="Description" Short="A rotary machine gun."></part>
-    <part Name="Examiner" UnknownDisplayName="strange tubes" AlternateDisplayName="strange tubes" UnknownTile="Items/sw_folding_chair.bmp" Complexity="5"></part>
+    <part Name="Examiner" Alternate="strange tubes" Unknown="UnknownStrangeTubes" Complexity="5"></part>
     <part Name="Metal"></part>
-    <part Name="TinkerItem" Bits="00246" CanDisassemble="true" CanBuild="true" CanRepair="true"></part>
-    <part Name="Physics" Weight="50"></part>
+    <part Name="TinkerItem" Bits="00246" CanDisassemble="true" CanBuild="true"></part>
     <tag Name="Tier" Value="6"></tag>
     <tag Name="MissileFireSound" Value="HW_Minigun"></tag>
     <tag Name="ReloadSound" Value="HW_LRReload"></tag>
@@ -20,13 +19,13 @@
 <!--Flame weapon-->
   <object Name="HW_FlameWeapon" Inherits="BaseHeavyWeapon">
     <part Name="Render" DisplayName="incendiary rocket launcher" RenderString=")" Tile="items/hw_FlameWeapon.png" ColorString="&amp;g"></part>
-    <part Name="Physics" bUsesTwoSlots="true" Weight="12"></part>
-    <part Name="MissileWeapon" Skill="HeavyWeapons" NoWildfire="false" NoAmmoProjectile="HW_ProjectileSIR" AnimationDelay="2" AmmoChar="m" ShotsPerAction="1" AmmoPerAction="1" WeaponAccuracy="13"></part>
+    <part Name="Physics" UsesTwoSlots="true" Weight="12"></part>
+    <part Name="MissileWeapon" Skill="HeavyWeapons" NoWildfire="false" AnimationDelay="2" AmmoChar="m" ShotsPerAction="1" AmmoPerAction="1" WeaponAccuracy="13"></part>
     <part Name="Commerce" Value="430"></part>
     <part Name="MagazineAmmoLoader" ProjectileObject="HW_ProjectileSIR" AmmoPart="HW_AmmoSIR" MaxAmmo="4"></part>
     <part Name="Description" Short="A multishot incendiary rocket launcher."></part>
-    <part Name="Examiner" UnknownDisplayName="strange tubes" AlternateDisplayName="strange tubes" UnknownTile="Items/sw_folding_chair.bmp" Complexity="4"></part>
-    <part Name="TinkerItem" Bits="0004" CanDisassemble="true" CanBuild="true" CanRepair="true"></part>
+    <part Name="Examiner" Alternate="strange tubes" Unknown="UnknownStrangeTubes" Complexity="4"></part>
+    <part Name="TinkerItem" Bits="0004" CanDisassemble="true" CanBuild="true"></part>
     <part Name="Metal"></part>
     <tag Name="Tier" Value="4"></tag>
     <tag Name="MissileFireSound" Value="HW_FWeapon"></tag>
@@ -39,13 +38,13 @@
 <!--Twin barreled rocket launcher-->
   <object Name="HW_DoubleBarrelRL" Inherits="BaseHeavyWeapon">
     <part Name="Render" DisplayName="twin-barreled rocket launcher" RenderString=")" Tile="items/hw_DoubleBarrelRL.png" ColorString="&amp;g"></part>
-    <part Name="Physics" bUsesTwoSlots="true" Weight="16"></part>
-    <part Name="MissileWeapon" Skill="HeavyWeapons" NoWildfire="false" NoAmmoProjectile="HW_ProjectileTBRL" AmmoChar="m" ShotsPerAction="1" AmmoPerAction="1" WeaponAccuracy="4"></part>
+    <part Name="Physics" UsesTwoSlots="true" Weight="16"></part>
+    <part Name="MissileWeapon" Skill="HeavyWeapons" NoWildfire="false" AmmoChar="m" ShotsPerAction="1" AmmoPerAction="1" WeaponAccuracy="4"></part>
     <part Name="Commerce" Value="700"></part>
-    <part Name="MagazineAmmoLoader" UseAmmo="true" ProjectileObject="" AmmoPart="HW_AmmoTBRL" MaxAmmo="2"></part>
+    <part Name="MagazineAmmoLoader" ProjectileObject="" AmmoPart="HW_AmmoTBRL" MaxAmmo="2"></part>
     <part Name="Description" Short="A highly accurate twin-barreled rocket launcher."></part>
-    <part Name="Examiner" UnknownDisplayName="strange tubes" AlternateDisplayName="strange tubes" UnknownTile="Items/sw_folding_chair.bmp" Complexity="5"  Difficulty="4"></part>
-    <part Name="TinkerItem" Bits="0005" CanDisassemble="true" CanBuild="true" CanRepair="true"></part>
+    <part Name="Examiner" Alternate="strange tubes" Unknown="UnknownStrangeTubes" Complexity="5"  Difficulty="4"></part>
+    <part Name="TinkerItem" Bits="0005" CanDisassemble="true" CanBuild="true"></part>
     <part Name="Metal"></part>
     <tag Name="Tier" Value="5"></tag>
     <tag Name="MissileFireSound" Value="HW_TwinBarrelRL"></tag>
@@ -58,16 +57,15 @@
 <!--Howitzer-->
   <object Name="HW_Howitzer" Inherits="BaseHeavyWeapon">
     <part Name="Render" DisplayName="&amp;Kho&amp;Wwi&amp;Ktzer&amp;y" RenderString=")" Tile="items/hw_Howitzer.png" ColorString="&amp;K"></part>
-    <part Name="Physics" bUsesTwoSlots="true"></part>
+    <part Name="Physics" UsesTwoSlots="true" Weight="50"></part>
     <part Name="Commerce" Value="700"></part>
-    <part Name="MissileWeapon" Skill="HeavyWeapons" NoAmmoProjectile="HW_ProjectileArtShell" AnimationDelay="1" ShotsPerAction="1" AmmoPerAction="1" ShotsPerAnimation="1" WeaponAccuracy="3"></part>
+    <part Name="MissileWeapon" Skill="HeavyWeapons" AnimationDelay="1" ShotsPerAction="1" AmmoPerAction="1" ShotsPerAnimation="1" WeaponAccuracy="3"></part>
     <part Name="MagazineAmmoLoader" ProjectileObject="HW_ProjectileArtShell" AmmoPart="HW_AmmoArtShell" MaxAmmo="1"></part>
     <part Name="Description" Short="A hand cannon."></part>
-    <part Name="Examiner" UnknownDisplayName="strange tubes" AlternateDisplayName="strange tubes" UnknownTile="Items/sw_folding_chair.bmp" Complexity="6" Difficulty="3"></part>
+    <part Name="Examiner" Alternate="strange tubes" Unknown="UnknownStrangeTubes" Complexity="6" Difficulty="3"></part>
     <part Name="Metal"></part>
     <part Name="HW_Artillery" CanFireAtUnexplored="false" SpreadRadius="3"></part>
-    <part Name="TinkerItem" Bits="0016" CanDisassemble="true" CanBuild="true" CanRepair="true"></part>
-    <part Name="Physics" Weight="50"></part>
+    <part Name="TinkerItem" Bits="0016" CanDisassemble="true" CanBuild="true"></part>
     <tag Name="Tier" Value="5"></tag>
     <tag Name="MissileFireSound" Value="HW_Howitzer"></tag>
     <tag Name="ReloadSound" Value="HW_LauncherReload"></tag>
@@ -132,8 +130,8 @@
     <tag Name="HW_AmmoArtShell"></tag>
     <part Name="Physics" Category="Ammo" Weight="2"></part>
     <part Name="Description" Short="Small caliber artillery shell."></part>
-    <part Name="TinkerItem" Bits="002" CanBuild="true" CanRepair="false" CanDisassemble="false" NumberMade="5"></part>
-    <part Name="Examiner" AlternateDisplayName="strange tube" Complexity="3"></part>
+    <part Name="TinkerItem" Bits="002" CanBuild="true" CanDisassemble="false" NumberMade="5"></part>
+    <part Name="Examiner" Alternate="strange tube" Complexity="3"></part>
     <part Name="Commerce" Value="18"></part>
   </object>
   
@@ -144,8 +142,8 @@
     <tag Name="HW_AmmoSIR"></tag>
     <part Name="Physics" Category="Ammo" Weight="1"></part>
     <part Name="Description" Short="A small rocket whose warhead is filled with thickened pyrophoric agent."></part>
-    <part Name="TinkerItem" Bits="0001" CanBuild="true" CanRepair="false" CanDisassemble="false" NumberMade="8"></part>
-    <part Name="Examiner" AlternateDisplayName="strange tube" Complexity="3"></part>
+    <part Name="TinkerItem" Bits="0001" CanBuild="true" CanDisassemble="false" NumberMade="8"></part>
+    <part Name="Examiner" Alternate="strange tube" Complexity="3"></part>
     <part Name="Commerce" Value="8"></part>
   </object>
   
@@ -156,8 +154,8 @@
     <tag Name="HW_AmmoTBRL"></tag>
     <part Name="Physics" Category="Ammo" Weight="2"></part>
     <part Name="Description" Short="A rocket whose warhead is filled with thickened pyrophoric agent."></part>
-    <part Name="TinkerItem" Bits="002" CanBuild="true" CanRepair="false" CanDisassemble="false" NumberMade="6"></part>
-    <part Name="Examiner" AlternateDisplayName="strange tube" Complexity="3"></part>
+    <part Name="TinkerItem" Bits="002" CanBuild="true" CanDisassemble="false" NumberMade="6"></part>
+    <part Name="Examiner" Alternate="strange tube" Complexity="3"></part>
     <part Name="Commerce" Value="16"></part>
   </object>
   
@@ -168,8 +166,8 @@
     <tag Name="HW_AmmoTBRL"></tag>
     <part Name="Physics" Category="Ammo" Weight="2"></part>
     <part Name="Description" Short="A thermobaric rocket. Useful for sweeping enclosed spaces."></part>
-    <part Name="TinkerItem" Bits="002" CanBuild="true" CanRepair="false" CanDisassemble="false" NumberMade="4"></part>
-    <part Name="Examiner" AlternateDisplayName="strange tube" Complexity="3"></part>
+    <part Name="TinkerItem" Bits="002" CanBuild="true" CanDisassemble="false" NumberMade="4"></part>
+    <part Name="Examiner" Alternate="strange tube" Complexity="3"></part>
     <part Name="Commerce" Value="20"></part>
   </object>
   
@@ -180,8 +178,8 @@
     <tag Name="HW_AmmoTBRL"></tag>
     <part Name="Physics" Category="Ammo" Weight="2"></part>
     <part Name="Description" Short="A rocket containing ignitious white phosphorous which is effective against both structures and living targets."></part>
-    <part Name="TinkerItem" Bits="002" CanBuild="true" CanRepair="false" CanDisassemble="false" NumberMade="4"></part>
-    <part Name="Examiner" AlternateDisplayName="strange tube" Complexity="3"></part>
+    <part Name="TinkerItem" Bits="002" CanBuild="true" CanDisassemble="false" NumberMade="4"></part>
+    <part Name="Examiner" Alternate="strange tube" Complexity="3"></part>
     <part Name="Commerce" Value="20"></part>
   </object>
 </objects>
