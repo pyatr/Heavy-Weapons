@@ -7,7 +7,7 @@
   </population>
   
   <population Name="Explosives 3">
-    <group Name="Items" Style="pickeach">
+    <group Name="Items" Style="pickone">
       <object Blueprint="HW_SmallIncendiaryRocket" Number="1-6" Weight="50"></object>
       <object Blueprint="HW_IncendiaryRocket" Number="1-3" Weight="50"></object>
       <object Blueprint="HW_ThermobaricRocket" Number="1-3" Weight="50"></object>

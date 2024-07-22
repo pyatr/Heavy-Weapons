@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using XRL.Rules;
 using XRL.UI;
-using XRL.Core;
 
 namespace XRL.World.Parts
 {
@@ -10,28 +8,28 @@ namespace XRL.World.Parts
     public class HW_Artillery : IPart
     {
         private const int GROUND_LEVEL = 10;
-		
+
         public Guid FireHowitzerActivatedAbilityID = Guid.Empty;
         public ActivatedAbilityEntry FireHowitzerActivatedAbility;
         public bool CanFireAtUnexplored;
         public int SpreadRadius;
 
-        public HW_Artillery() { }
+        public override bool SameAs(IPart p) => base.SameAs(p);
 
-        public override bool SameAs(IPart p) => base.SameAs(p);        
-
-        public override void Register(GameObject Object)
+        public override void Register(GameObject Object, IEventRegistrar Registrar)
         {
-            Object.RegisterPartEvent((IPart)this, "Equipped");
-            Object.RegisterPartEvent((IPart)this, "Unequipped");
-            Object.RegisterPartEvent((IPart)this, "CommandFireHowitzer");
+            Registrar.Register("Equipped");
+            Registrar.Register("Unequipped");
+            Registrar.Register("CommandFireHowitzer");
+
+            base.Register(Object, Registrar);
         }
 
         public override bool FireEvent(Event E)
         {
             if (E.ID == "CommandFireHowitzer")
             {
-                GameObject owner = ParentObject.pPhysics.Equipped;
+                GameObject owner = ParentObject.Physics.Equipped;
 
                 Cell currentCell = owner.GetCurrentCell();
 
@@ -41,14 +39,14 @@ namespace XRL.World.Parts
                 if (currentCell.ParentZone.IsWorldMap())
                 {
                     if (owner.IsPlayer())
-                        Popup.Show("You may not use this ability on the world map.", true);
+                        Popup.Show("You may not use this ability on the world map.");
                     return true;
                 }
 
                 if (currentCell.ParentZone.Z != GROUND_LEVEL)
                 {
                     if (owner.IsPlayer())
-                        Popup.Show("You can only use this ability at ground level.", true);
+                        Popup.Show("You can only use this ability at ground level.");
                     return true;
                 }
 
@@ -57,7 +55,7 @@ namespace XRL.World.Parts
                 if (shell == null)
                 {
                     if (owner.IsPlayer())
-                        Popup.Show("Your howitzer is not loaded.", true);
+                        Popup.Show("Your howitzer is not loaded.");
                     return true;
                 }
 
@@ -66,19 +64,19 @@ namespace XRL.World.Parts
 
                 List<Cell> CellsWithinArea = new List<Cell>();
                 if (CanFireAtUnexplored)
-                    CellsWithinArea = ParentObject.pPhysics.Equipped.pPhysics.PickCircle(SpreadRadius, 80, false, AllowVis.Any);
+                    CellsWithinArea = ParentObject.Physics.Equipped.Physics.PickCircle(SpreadRadius, 80, false, AllowVis.Any);
                 else
-                    CellsWithinArea = ParentObject.pPhysics.Equipped.pPhysics.PickCircle(SpreadRadius, 80, false, AllowVis.OnlyExplored);
+                    CellsWithinArea = ParentObject.Physics.Equipped.Physics.PickCircle(SpreadRadius, 80, false, AllowVis.OnlyExplored);
 
                 if (CellsWithinArea.Count > 0)
                 {
-                    if (owner.pPhysics != null)
-                        owner.pPhysics.PlayWorldSound(ParentObject.GetTag("MissileFireSound", (string)null), 0.5f, 0.0f, true, (Cell)null);
+                    if (owner.Physics != null)
+                        owner.Physics.PlayWorldSound(ParentObject.GetTag("MissileFireSound", (string)null), 0.5f, 0.0f, true, (Cell)null);
                     Cell randomCell;
                     //int i = 0;
                     //do
                     //{
-                        //i++;
+                    //i++;
                     randomCell = CellsWithinArea.GetRandomElement();
                     //} while (randomCell.IsSolid() && i < 30);
 
@@ -88,8 +86,8 @@ namespace XRL.World.Parts
                     {
                         GO = GameObjectFactory.Factory.CreateObject(ammoTypeButDeeper);
                         randomCell.AddObject(GO);
-                        GasGrenade gr = GO.GetPart("GasGrenade") as GasGrenade;
-                        GO.pPhysics.PlayWorldSound(ParentObject.GetTag("DetonatedSound", (string)null), 0.5f, 0.0f, true, (Cell)null);
+                        GasGrenade gr = GO.GetPart<GasGrenade>();
+                        GO.Physics.PlayWorldSound(ParentObject.GetTag("DetonatedSound", (string)null), 0.5f, 0.0f, true, (Cell)null);
                         gr.Detonate(randomCell, owner);
                     }
                     if (GOexample.HasPart("ExplodeOnHit"))
@@ -97,8 +95,8 @@ namespace XRL.World.Parts
                         if (GO == null)
                             GO = GameObjectFactory.Factory.CreateObject(ammoTypeButDeeper);
                         randomCell.AddObject(GO);
-                        ExplodeOnHit d = GO.GetPart("ExplodeOnHit") as ExplodeOnHit;
-                        GO.pPhysics.PlayWorldSound(ParentObject.GetTag("DetonatedSound", (string)null), 0.5f, 0.0f, true, (Cell)null);
+                        ExplodeOnHit d = GO.GetPart<ExplodeOnHit>();
+                        GO.Physics.PlayWorldSound(ParentObject.GetTag("DetonatedSound", (string)null), 0.5f, 0.0f, true, (Cell)null);
                         d.Detonate(owner);
                     }
                     if (GO != null)
@@ -116,7 +114,8 @@ namespace XRL.World.Parts
                         }
                     }
 
-                    Stacker stackerino = shell.GetPart("Stacker") as Stacker;
+                    Stacker stackerino = shell.GetPart<Stacker>();
+
                     if (shell != null && stackerino != null)
                     {
                         if (stackerino.Number > 1)
@@ -137,8 +136,8 @@ namespace XRL.World.Parts
                     ActivatedAbilities pAA = go.GetPart<ActivatedAbilities>();
                     if (pAA != null)
                     {
-                        this.FireHowitzerActivatedAbilityID = pAA.AddAbility("Fire howitzer at an area", "CommandFireHowitzer", "Items");
-                        this.FireHowitzerActivatedAbility = pAA.AbilityByGuid[this.FireHowitzerActivatedAbilityID];
+                        FireHowitzerActivatedAbilityID = pAA.AddAbility("Fire howitzer at an area", "CommandFireHowitzer", "Items");
+                        FireHowitzerActivatedAbility = pAA.AbilityByGuid[FireHowitzerActivatedAbilityID];
                     }
                 }
                 return true;
@@ -150,11 +149,11 @@ namespace XRL.World.Parts
                 if (go.HasPart("HeavyWeapons"))
                 {
                     go.UnregisterPartEvent(this, "CommandFireHowitzer");
-                    if (this.FireHowitzerActivatedAbilityID != Guid.Empty)
+                    if (FireHowitzerActivatedAbilityID != Guid.Empty)
                     {
                         ActivatedAbilities pAA = go.GetPart<ActivatedAbilities>();
-                        pAA.RemoveAbility(this.FireHowitzerActivatedAbilityID);
-                        this.FireHowitzerActivatedAbilityID = Guid.Empty;
+                        pAA.RemoveAbility(FireHowitzerActivatedAbilityID);
+                        FireHowitzerActivatedAbilityID = Guid.Empty;
                     }
                     return true;
                 }
@@ -163,8 +162,3 @@ namespace XRL.World.Parts
         }
     }
 }
-/*=== Heavy Weapons Errors ===
-\HW_AddPopulationsFromXML.cs(59,83): error CS0266: Cannot implicitly convert type 'int' to 'uint'. An explicit conversion exists (are you missing a cast?)
-\HW_Artillery.cs(93,37): error CS1503: Argument 1: cannot convert from 'XRL.World.GameObject' to 'XRL.World.Cell'
-== Warnings ==
-None*/

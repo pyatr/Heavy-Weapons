@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Xml;
 using System.Collections.Generic;
-using XRL;
-using XRL.Core;
-using XRL.Messages;
-using XRL.World;
 using UnityEngine;
 
 namespace XRL
 {
     [HasGameBasedStaticCache]
-    public class HW_AddPopulationsFromXML
+    public class WWA_AddPopulationsFromXML
     {
+        [GameBasedCacheInit]
         public static void Reset()
         {
+            Debug.Log("I want to merge populations");
+
             string modName = "Heavy Weapons";
             string path = "";
+
             foreach (ModInfo modInfo in ModManager.Mods)
             {
                 if (modInfo.Manifest.Title == modName)
@@ -24,6 +24,7 @@ namespace XRL
                     break;
                 }
             }
+
             if (path != "")
             {
                 XmlDocument xDoc = new XmlDocument();
@@ -93,9 +94,11 @@ namespace XRL
                     }
                 }
                 Debug.Log("Populations from " + modName + " merged succesfully");
+                //MessageQueue.AddPlayerMessage("Populations from " + modName + " merged succesfully");
             }
             else
                 Debug.Log("Could not find path to mod " + modName);
+            //MessageQueue.AddPlayerMessage("Could not find path to mod " + modName);
         }
     }
 }

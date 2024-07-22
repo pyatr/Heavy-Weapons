@@ -119,7 +119,7 @@
   </object>
   
   <object Name="HW_ProjectileMinigunSlug" Inherits="TemporaryProjectile">
-    <part Name="Projectile" BasePenetration="4" BaseDamage="1d6" ColorString="&amp;y"></part>
+    <part Name="Projectile" BasePenetration="4" BaseDamage="1d8" ColorString="&amp;y"></part>
     <part Name="Physics" IsReal="false"></part>
   </object>
 <!--Ammo-->  
