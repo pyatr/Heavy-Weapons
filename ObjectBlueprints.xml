@@ -74,6 +74,22 @@
     <tag Name="AttachmentSlot:scope:Scope mount" Value="scope"></tag>
     <tag Name="AttachmentSlot:underbarrel:Under barrel" Value="bipod"></tag>
   </object>
+  <object Name="HW_Revolver_Grenade_Launcher" Inherits="BaseMagazineHeavyWeapon">
+    <part Name="Render" DisplayName="revolver grenade launcher" ColorString="&amp;K" DetailColor="w" Tile="items/hw_revolver_grenade_launcher.png" />
+    <part Name="Physics" UsesTwoSlots="true" Weight="18" />
+    <part Name="MissileWeapon" Skill="HeavyWeapons" NoWildfire="false" MaxRange="80" AnimationDelay="5" AmmoChar="ë" ShotsPerAction="1" AmmoPerAction="1" ShotsPerAnimation="1" WeaponAccuracy="5" />
+    <part Name="Commerce" Value="790" />
+    <part Name="MagazineAmmoLoader" ProjectileObject="" AmmoPart="AmmoGrenade" MaxAmmo="6" />
+    <part Name="Description" Short="A hefty grenade launcher with a revolver-style magazine." />
+    <part Name="Examiner" Unknown="UnknownStrangeTubes" Alternate="UnknownStrangeTubes" Complexity="4" />
+    <part Name="TinkerItem" Bits="00344" CanDisassemble="true" CanBuild="true" />
+    <part Name="Metal" />
+    <tag Name="Tier" Value="4" />
+    <tag Name="MissileFireSound" Value="Sounds/Missile/Fires/Heavy Weapons/sfx_missile_grenadeLauncher_fire" />
+    <tag Name="ReloadSound" Value="Sounds/Missile/Reloads/sfx_missile_grenadeLauncher_reload" />
+    <tag Name="AttachmentSlot:scope:Scope mount" Value="reflex sight" />
+    <tag Name="AttachmentSlot:foregrip:Foregrip" Value="foregrip" />
+  </object>
 <!--Projectiles-->
   <object Name="HW_ProjectileSIR" Inherits="TemporaryProjectile">
     <part Name="Projectile" BasePenetration="6" BaseDamage="1d6" ColorString="&amp;y"></part>
