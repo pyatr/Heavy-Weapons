@@ -100,6 +100,7 @@
     <part Name="Render" DisplayName="white phosphorus"></part>
     <part Name="Gas" GasType="White Phosphorus" ColorString="&amp;Y^y" Density="30"/>
     <part Name="HW_Phosphorus" />
+    <part Name="LightSource" Lit="true" Radius="2" />
     <part Name="Description" Short="Ignitious white phosphorus." />
     <tag Name="ActivationColorString" Value="&amp;Y" />
   </object>
@@ -112,14 +113,14 @@
   </object>
   
   <object Name="HW_ProjectileArtShell" Inherits="TemporaryProjectile">
-    <part Name="Projectile" BasePenetration="12" BaseDamage="1d8" ColorString="&amp;y"></part>
+    <part Name="Projectile" BasePenetration="10" BaseDamage="1d8" ColorString="&amp;y"></part>
     <part Name="ExplodeOnHit" Force="8000" Damage="4d12"></part>
     <part Name="Physics" IsReal="false"></part>
     <tag Name="DetonatedSound" Value="HW_ArtShellDie"></tag>
   </object>
   
   <object Name="HW_ProjectileMinigunSlug" Inherits="TemporaryProjectile">
-    <part Name="Projectile" BasePenetration="4" BaseDamage="1d8" ColorString="&amp;y"></part>
+    <part Name="Projectile" BasePenetration="5" BaseDamage="1d8" ColorString="&amp;y"></part>
     <part Name="Physics" IsReal="false"></part>
   </object>
 <!--Ammo-->  
